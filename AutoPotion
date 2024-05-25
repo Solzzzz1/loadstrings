@@ -1,9 +1,9 @@
 -- 1 = 0.2
 -- > 1 = X
 
-local link = "https://raw.githubusercontent.com/Solzzzz1/loadstrings/main/"
 
-loadstring(game:HttpGet(link .. "NotifyMessage"))()
+
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Solzzzz1/loadstrings/main/NotifyMessage"))()
 
 local Default = getgenv().default
 local Cooldown = getgenv().c_d
