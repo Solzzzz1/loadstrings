@@ -12,6 +12,9 @@ end
 local Default = getgenv().default
 local Cooldown = getgenv().c_d
 warn("SSS")
+local t = tostring
+print(t(Default))
+print(t(Cooldown))
 
 if getgenv().load == true then
     Notify("Script", "Script has already been loaded, if u stopped moving please rejoin and exec again.", math.huge)
@@ -46,8 +49,8 @@ local QuickSets = {
 
 
 getgenv().sets = {
-    cd = (Cooldown ~= nil and Cooldown or 1),
-    default = (Default ~= nil and Default or true),
+    cd = Cooldown,
+    default = Default,
     Positions = QuickSets -- // set default to true if to all positions. (this is neccesary to be any random table, even if blank but if u want default set default to true;)
 }
 
