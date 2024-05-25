@@ -15,6 +15,6 @@ end
 
 task.wait(3)
 
-local str = "https://raw.githubusercontent.com/Solzzzz1/loadstrings/main/MainScript"
+local str = "https://raw.githubusercontent.com/Solzzzz1/loadstrings/main/TITITITI"
 
 loadstring(game:HttpGet(str))()
