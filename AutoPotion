@@ -1,0 +1,51 @@
+-- 1 = 0.2
+-- > 1 = X
+
+local link = "https://raw.githubusercontent.com/Solzzzz1/loadstrings/main/"
+
+loadstring(game:HttpGet(link .. "NotifyMessage"))()
+
+local Default = getgenv().default
+local Cooldown = getgenv().c_d
+
+if getgenv().load == true then
+    _G.Notify("Script", "Script has already been loaded, if u stopped moving please rejoin and exec again.", math.huge)
+    return;
+else
+    getgenv().load = true
+    _G.Notify("LOAD", "setting up.", 3)
+end
+
+_G.Notify("AUTO POT", "Loading up script, it'll start moving for u when it loads.", 5)
+
+loadstring(game:HttpGet("https://pastebin.com/raw/vyP2XJ7F"))()
+
+-- // Dont use in public or get reported! (also LegitSets are short, made for fun)
+-- // recommended to use default = true
+
+local LegitSets = {
+    CFrame.new(191, 122, 75),
+    CFrame.new(173, 123, 94),
+    --CFrame.new(170, 105, -7),
+}
+
+local QuickSets = {
+    CFrame.new(168, 105, -2),
+    CFrame.new(257, 105, -2),
+    CFrame.new(282, 106, 127),
+    CFrame.new(246, 105, 62)
+}
+
+
+
+getgenv().sets = {
+    cd = (Cooldown ~= nil and Cooldown or 1),
+    default = (Default ~= nil and Default or true),
+    Positions = QuickSets -- // set default to true if to all positions. (this is neccesary to be any random table, even if blank but if u want default set default to true;)
+}
+
+
+
+task.wait(1.5)
+
+loadstring(game:HttpGet("https://pastebin.com/raw/3FV7EGsT"))()
