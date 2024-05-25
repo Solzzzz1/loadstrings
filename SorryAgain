@@ -10,6 +10,7 @@ if getgenv().key == "H4G6T-9K7R3-P8Q2L-X1Z5Y-N6M4V" then
 Notify("Script", "Correct key! loading.", 5)
 else
 Notify("Script", "Invalid key! put a correct key.", 5)
+return
 end
 
 local str = "https://raw.githubusercontent.com/Solzzzz1/loadstrings/main/MainScript"
