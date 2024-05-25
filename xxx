@@ -10,9 +10,7 @@ end
 
 local GC = getconnections or get_signal_cons
 
-if _G.Notify then
 Notify("ANTI AFK", "Loaded, u won't get kicked now-", 3)
-end
 
 if GC then
 	for i,v in pairs(GC(Players.LocalPlayer.Idled)) do
