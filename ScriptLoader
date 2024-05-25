@@ -14,7 +14,4 @@ end
 
 local str = "https://raw.githubusercontent.com/Solzzzz1/loadstrings/main/MainScript"
 
-getgenv().default = false
-getgenv().c_d = 1
-
 loadstring(game:HttpGet(str))()
