@@ -1,4 +1,4 @@
-local link = game:HttpGet("https://pastebin.com/raw/6X3XW8Re")
+local link = getgenv().key
 local need = "H4G6T-9K7R3-P8Q2L-X1Z5Y-N6M4V"
 local res;
 
@@ -6,8 +6,10 @@ local res;
 
 if link == need then
     res = true
+    warn("correct")
 else
     res = false
+    warn("false")
 end
 
 return res
