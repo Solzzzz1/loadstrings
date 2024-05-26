@@ -1,0 +1,13 @@
+local link = game:HttpGet("https://pastebin.com/raw/6X3XW8Re")
+local need = "H4G6T-9K7R3-P8Q2L-X1Z5Y-N6M4V"
+local res;
+
+
+
+if link == need then
+    res = true
+else
+    res = false
+end
+
+return res
