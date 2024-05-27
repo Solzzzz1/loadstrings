@@ -13,8 +13,11 @@ Notify("Script", "Invalid key! put a correct key.", 5)
 return
 end
 
+warn("F4 to toggle Idle UI (mobile dosent have keybind so use keyboard script in that case ig)")
+
 task.wait(3)
 
 local str = "https://raw.githubusercontent.com/Solzzzz1/loadstrings/main/TITITITI"
 
 loadstring(game:HttpGet(str))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Solzzzz1/loadstrings/main/IdleUIFixed"))()
