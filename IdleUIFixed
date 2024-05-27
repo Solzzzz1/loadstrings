@@ -93,6 +93,7 @@ IdleUI.Name = "IdleUI"
 IdleUI.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
 IdleUI.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 IdleUI.ResetOnSpawn = false
+IdleUI.IgnoreGuiInset = true
 
 Frame.Parent = IdleUI
 Frame.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
