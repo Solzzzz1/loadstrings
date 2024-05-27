@@ -1,0 +1,299 @@
+if getgenv().IdleUI == true then
+local stats = game.Players.LocalPlayer.PlayerGui.Stats.ScrollingFrame
+local mainInterface = game.Players.LocalPlayer.PlayerGui.MainInterface
+
+mainInterface.Enabled = false
+
+function GetSessionTime()
+    local label = stats.SessionTime
+    local sessionTime = ""
+    local modifiedString = string.gsub(label.Text, "Session time : ", "")
+
+    sessionTime = modifiedString
+
+    return sessionTime
+end
+
+function GetLuckBoost()
+    local label = stats.Lucks
+    local luck = ""
+    local modifiedString = string.gsub(label.Text, "Your luck : ", "")
+
+    luck = modifiedString
+
+    return luck
+end
+
+function GetRarestRNG()
+    local label = stats.Rarest
+    local rng = ""
+    local modifiedString = string.gsub(label.Text, "Rarest RNG : ", "")
+
+    rng = modifiedString
+
+    return rng
+end
+
+function GetRolls()
+    local label = stats.Rolls
+    local rolls = ""
+    local modifiedString = string.gsub(label.Text, "Rolled : ", "")
+
+    rolls = modifiedString
+
+    return rolls
+end
+
+local IdleUI = Instance.new("ScreenGui")
+local Frame = Instance.new("Frame")
+local Title = Instance.new("TextLabel")
+local Line = Instance.new("TextLabel")
+local UserRunning = Instance.new("TextLabel")
+local RunTime = Instance.new("TextLabel")
+local LuckBoost = Instance.new("TextLabel")
+local Rolls = Instance.new("TextLabel")
+local MostRarest = Instance.new("TextLabel")
+local ServerTime = Instance.new("TextLabel")
+
+coroutine.wrap(function()
+    while true do
+        local ST = GetSessionTime()
+        ServerTime.Text = "Server Run Time : " .. ST
+        task.wait()
+    end
+end)()
+
+coroutine.wrap(function()
+    while true do
+        local LB = GetLuckBoost()
+        LuckBoost.Text = "Luck Multiplier : " .. LB
+        task.wait()
+    end
+end)()
+
+coroutine.wrap(function()
+    while true do
+        local Rarest = GetRarestRNG()
+        MostRarest.Text = "Most Rarest Aura : " .. Rarest
+        task.wait()
+    end
+end)()
+
+coroutine.wrap(function()
+    while true do
+        local Rolls1 = GetRolls()
+        Rolls.Text = "Rolls : " .. Rolls1
+        task.wait()
+    end
+end)()
+
+--Properties:
+
+IdleUI.Name = "IdleUI"
+IdleUI.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+IdleUI.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+IdleUI.ResetOnSpawn = false
+
+Frame.Parent = IdleUI
+Frame.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Frame.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Frame.BorderSizePixel = 0
+Frame.Size = UDim2.new(1, 0, 1, 0)
+
+Title.Name = "Title"
+Title.Parent = Frame
+Title.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Title.BackgroundTransparency = 1.000
+Title.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Title.BorderSizePixel = 0
+Title.Position = UDim2.new(0.175749317, 0, 0.0843672454, 0)
+Title.Size = UDim2.new(0, 468, 0, 75)
+Title.Font = Enum.Font.SourceSans
+Title.Text = "- - - - - Idle UI - - - - -"
+Title.TextColor3 = Color3.fromRGB(255, 255, 255)
+Title.TextScaled = true
+Title.TextSize = 14.000
+Title.TextWrapped = true
+
+Line.Name = "Line"
+Line.Parent = Frame
+Line.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Line.BackgroundTransparency = 1.000
+Line.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Line.BorderSizePixel = 0
+Line.Position = UDim2.new(0.18119891, 0, 0.224565759, 0)
+Line.Size = UDim2.new(0, 468, 0, 532)
+Line.Font = Enum.Font.SourceSans
+Line.Text = ""
+Line.TextColor3 = Color3.fromRGB(255, 255, 255)
+Line.TextScaled = true
+Line.TextSize = 14.000
+Line.TextWrapped = true
+local I = Instance.new("UIStroke")
+I.Parent = Line
+I.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+I.Color = Color3.fromRGB(255,255,255)
+I.Thickness = 1
+I.Transparency = 0
+I.LineJoinMode = Enum.LineJoinMode.Round
+
+UserRunning.Name = "UserRunning"
+UserRunning.Parent = Frame
+UserRunning.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+UserRunning.BackgroundTransparency = 1.000
+UserRunning.BorderColor3 = Color3.fromRGB(0, 0, 0)
+UserRunning.BorderSizePixel = 0
+UserRunning.Position = UDim2.new(0.183923706, 0, 0.284119099, 0)
+UserRunning.Size = UDim2.new(0, 317, 0, 52)
+UserRunning.Font = Enum.Font.SourceSans
+UserRunning.Text = "User Running : "
+UserRunning.TextColor3 = Color3.fromRGB(255, 255, 255)
+UserRunning.TextScaled = true
+UserRunning.TextSize = 14.000
+UserRunning.TextWrapped = true
+UserRunning.TextXAlignment = Enum.TextXAlignment.Left
+
+RunTime.Name = "RunTime"
+RunTime.Parent = Frame
+RunTime.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+RunTime.BackgroundTransparency = 1.000
+RunTime.BorderColor3 = Color3.fromRGB(0, 0, 0)
+RunTime.BorderSizePixel = 0
+RunTime.Position = UDim2.new(0.183923706, 0, 0.348635226, 0)
+RunTime.Size = UDim2.new(0, 317, 0, 52)
+RunTime.Font = Enum.Font.SourceSans
+RunTime.Text = "Run Time : "
+RunTime.TextColor3 = Color3.fromRGB(255, 255, 255)
+RunTime.TextScaled = true
+RunTime.TextSize = 14.000
+RunTime.TextWrapped = true
+RunTime.TextXAlignment = Enum.TextXAlignment.Left
+
+LuckBoost.Name = "LuckBoost"
+LuckBoost.Parent = Frame
+LuckBoost.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+LuckBoost.BackgroundTransparency = 1.000
+LuckBoost.BorderColor3 = Color3.fromRGB(0, 0, 0)
+LuckBoost.BorderSizePixel = 0
+LuckBoost.Position = UDim2.new(0.183923706, 0, 0.413151354, 0)
+LuckBoost.Size = UDim2.new(0, 317, 0, 52)
+LuckBoost.Font = Enum.Font.SourceSans
+LuckBoost.Text = "Luck Multiplier : "
+LuckBoost.TextColor3 = Color3.fromRGB(255, 255, 255)
+LuckBoost.TextScaled = true
+LuckBoost.TextSize = 14.000
+LuckBoost.TextWrapped = true
+LuckBoost.TextXAlignment = Enum.TextXAlignment.Left
+
+Rolls.Name = "Rolls"
+Rolls.Parent = Frame
+Rolls.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Rolls.BackgroundTransparency = 1.000
+Rolls.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Rolls.BorderSizePixel = 0
+Rolls.Position = UDim2.new(0.183923706, 0, 0.477667481, 0)
+Rolls.Size = UDim2.new(0, 317, 0, 52)
+Rolls.Font = Enum.Font.SourceSans
+Rolls.Text = "Rolls : "
+Rolls.TextColor3 = Color3.fromRGB(255, 255, 255)
+Rolls.TextScaled = true
+Rolls.TextSize = 14.000
+Rolls.TextWrapped = true
+Rolls.TextXAlignment = Enum.TextXAlignment.Left
+
+MostRarest.Name = "MostRarest"
+MostRarest.Parent = Frame
+MostRarest.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+MostRarest.BackgroundTransparency = 1.000
+MostRarest.BorderColor3 = Color3.fromRGB(0, 0, 0)
+MostRarest.BorderSizePixel = 0
+MostRarest.Position = UDim2.new(0.183923706, 0, 0.542183638, 0)
+MostRarest.Size = UDim2.new(0, 317, 0, 52)
+MostRarest.Font = Enum.Font.SourceSans
+MostRarest.Text = "Most Rarest Aura : "
+MostRarest.TextColor3 = Color3.fromRGB(255, 255, 255)
+MostRarest.TextScaled = true
+MostRarest.TextSize = 14.000
+MostRarest.TextWrapped = true
+MostRarest.TextXAlignment = Enum.TextXAlignment.Left
+
+ServerTime.Name = "ServerTime"
+ServerTime.Parent = Frame
+ServerTime.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ServerTime.BackgroundTransparency = 1.000
+ServerTime.BorderColor3 = Color3.fromRGB(0, 0, 0)
+ServerTime.BorderSizePixel = 0
+ServerTime.Position = UDim2.new(0.183923706, 0, 0.621588111, 0)
+ServerTime.Size = UDim2.new(0, 317, 0, 52)
+ServerTime.Font = Enum.Font.SourceSans
+ServerTime.Text = "Server Run Time : "
+ServerTime.TextColor3 = Color3.fromRGB(255, 255, 255)
+ServerTime.TextScaled = true
+ServerTime.TextSize = 14.000
+ServerTime.TextWrapped = true
+ServerTime.TextXAlignment = Enum.TextXAlignment.Left
+
+-- Scripts:
+
+local function MFJZOI_fake_script() -- UserRunning.xx 
+	local script = Instance.new('LocalScript', UserRunning)
+
+	script.Parent.Text = "User Running : " .. game.Players.LocalPlayer.Name
+end
+
+coroutine.wrap(MFJZOI_fake_script)()
+local function VNMJIDG_fake_script() -- RunTime.kk 
+	local script = Instance.new('LocalScript', RunTime)
+
+	local expect = "Run time : "
+	local days = 0
+	local hours = 0
+	local minutes = 0
+	local seconds = 0
+	
+	
+	local function updateTimer()
+	    seconds = seconds + 1
+	
+	    if seconds >= 60 then
+	        seconds = 0
+	        minutes = minutes + 1
+	    end
+	
+	    if minutes >= 60 then
+	        minutes = 0
+	        hours = hours + 1
+	    end
+	
+	    if hours >= 24 then
+	        hours = 0
+	        days = days + 1
+	    end
+	
+	
+	    local formattedTime = string.format("%02d:%02d:%02d:%02d", days, hours, minutes, seconds)
+	    return formattedTime
+	end
+	
+	
+	while true do
+	    local currentTime = updateTimer()
+	    script.Parent.Text = expect .. currentTime
+	    wait(1)
+	end
+	
+end
+coroutine.wrap(VNMJIDG_fake_script)()
+
+
+    local key = getgenv().IdleUIToggle
+    game.UserInputService.InputBegan:Connect(function(inp, pro)
+        if pro then return end
+
+        if inp.KeyCode == key then
+            IdleUI.Enabled = not IdleUI.Enabled
+            mainInterface.Enabled = not mainInterface.Enabled
+        end
+    end)
+
+end
