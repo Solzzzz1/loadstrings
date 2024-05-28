@@ -505,6 +505,7 @@ for Index = 1, #uilist do
     cwrap(function()
         while true do
             task.wait()
+            if inlist == nil then inlist = {}; inlist.ItemAmount = {}; inlist.ItemAmount.Text = "Not Found";
             label.Text = originalText .. inlist.ItemAmount.Text
         end
     end)()
