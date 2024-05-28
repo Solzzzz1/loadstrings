@@ -494,19 +494,25 @@ game.UserInputService.InputBegan:Connect(function(inp, pro)
 
 end)
 
+cwrap = coroutine.wrap
+
 
 for Index = 1, #uilist do
     
     local label = uilist[Index]
     local inlist = list[Index]
     local originalText = label.Text
+
+    if inlist ~= nil then
+        label.Text = originalText .. inlist.ItemAmount.Text
+    end
     
-    label.Text = originalText .. inlist.ItemAmount.Text
     cwrap(function()
         while true do
             task.wait()
-            if inlist == nil then inlist = {}; inlist.ItemAmount = {}; inlist.ItemAmount.Text = "Not Found";
-            label.Text = originalText .. inlist.ItemAmount.Text
+            if inlist ~= nil then
+                label.Text = originalText .. inlist.ItemAmount.Text
+            end
         end
     end)()
 end
