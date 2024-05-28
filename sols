@@ -20,4 +20,4 @@ task.wait(3)
 local str = "https://raw.githubusercontent.com/Solzzzz1/loadstrings/main/TITITITI"
 
 loadstring(game:HttpGet(str))()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/Solzzzz1/loadstrings/main/Idle%20UI%20Remastered"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Solzzzz1/loadstrings/main/IUR"))()
