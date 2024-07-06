@@ -58,4 +58,4 @@ getgenv().sets = {
 
 task.wait(1.5)
 
-loadstring(game:HttpGet("https://pastebin.com/raw/3FV7EGsT"))()
+loadstring(game:HttpGet("https://pastebin.com/raw/nXtdpZf7"))()
