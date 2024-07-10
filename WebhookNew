@@ -1,0 +1,84 @@
+local WebhookSystem = {}
+WebhookSystem.WebhookID = getgenv().GlobalScriptID -- // cipherdeveloper if you were here too bad so sad you couldn't do this!
+
+if WebhookSystem.WebhookID == nil then
+    return warn"webhook is not defined"
+end
+
+
+function WebhookSystem:CheckWebhookValid()
+    local Success, Err = pcall(function()
+            local http = game:GetService("HttpService")
+            local headers = {
+                ["Content-Type"] = "application/json"
+            }
+            local data = {
+                ["content"] = "TestWebhook_V1"
+            }
+            local body = http:JSONEncode(data)
+            local response = request({
+                Url = WebhookSystem.WebhookID,
+                Method = "POST",
+                Headers = headers,
+                Body = body
+            })
+    end)
+
+    if Success then warn("Webhook test worked!") elseif not Success and Err then warn(Err) end
+end
+
+function WebhookSystem:SendMessage(text, url)
+    local Success, Err = pcall(function()
+            local http = game:GetService("HttpService")
+            local headers = {
+                ["Content-Type"] = "application/json"
+            }
+            local data = {
+                ["content"] = text
+            }
+            local body = http:JSONEncode(data)
+            local response = request({
+                Url = url,
+                Method = "POST",
+                Headers = headers,
+                Body = body
+            })
+    end)
+end
+
+function WebhookSystem:SendEmbed(url, embed)
+    local http = game:GetService("HttpService")
+    local headers = {
+        ["Content-Type"] = "application/json"
+    }
+    local data = {
+        ["embeds"] = {
+            {
+                ["title"] = embed.title,
+                ["description"] = embed.description,
+                ["color"] = embed.color,
+                ["fields"] = embed.fields,
+                ["footer"] = {
+                    ["text"] = embed.footer.text
+                }
+            }
+        }
+    }
+    local body = http:JSONEncode(data)
+    local response = request({
+        Url = url,
+        Method = "POST",
+        Headers = headers,
+        Body = body
+    })
+end
+
+return {
+    [1] = {
+        [1] = "title",
+        [2] = "description",
+        [3] = "color",
+        [4] = "fields : table",
+        [5] = "footer : table"
+    }
+}
