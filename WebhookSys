@@ -74,7 +74,8 @@ function WebhookSystem:SendEmbed(url, embed)
 end
 
 return {
-    [1] = {
+    [1] = WebhookSystem,
+    [2] = {
         [1] = "title",
         [2] = "description",
         [3] = "color",
