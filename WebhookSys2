@@ -71,6 +71,8 @@ function WebhookSystem:SendEmbed(url, embed)
         Headers = headers,
         Body = body
     })
+
+    return response
 end
 
 return {
